@@ -1,0 +1,462 @@
+/* ============================================
+   Customize css from Opale Theme
+   Modern, clean design with indigo primary color
+   ============================================ */
+@use "sass:color";
+@use "variables" 
+with (
+  // ═══════════════════════════════════════════
+  // LOGO & FEATURES
+  // ═══════════════════════════════════════════
+  $logo-image-width: 80px,
+  $logo-image-height: 55px,
+
+  // Hiển thị logo trong header (true/false)
+  // ═══════════════════════════════════════════
+  // BẢNG MÀU CHÍNH (Core Colors)
+  // Đây là các màu gốc, các component sẽ dựa vào
+  // ═══════════════════════════════════════════
+  
+  // Màu chủ đạo - dùng cho header, buttons, links
+  $indigo: #014f86,
+  
+  // Màu xanh dương - dùng cho info, links phụ
+  $blue: #3B82F6,
+  
+  // Màu tím - dùng cho các accent đặc biệt
+  $purple: #8B5CF6,
+  
+  // Màu hồng - ít dùng, có thể cho badges
+  $pink: #EC4899,
+  
+  // Màu đỏ - dùng cho error, danger, xóa
+  $red: #EF4444,
+  
+  // Màu cam - dùng cho warning
+  $orange: #F59E0B,
+  
+  // Màu vàng - dùng cho highlight, warning nhẹ
+  $yellow: #FCD34D,
+  
+  // Màu xanh lá - dùng cho success, hoàn thành
+  $green: #029934,
+  
+  // Màu cyan/teal - dùng cho accent, info phụ
+  $teal: #06B6D4,
+
+  // ═══════════════════════════════════════════
+  // BRAND COLORS (Màu thương hiệu)
+  // ═══════════════════════════════════════════
+  
+  // Màu chính của brand - header, active states, primary buttons
+  $brand-primary: #014f86,
+  
+  // Màu chữ trên nền brand-primary (thường là trắng)
+  $brand-text: #FFFFFF,
+  
+  // Màu accent - dùng cho highlight, badges
+  $brand-accent: #A5B4FC,
+
+  // ═══════════════════════════════════════════
+  // SEMANTIC COLORS (Màu theo ngữ nghĩa)
+  // Dùng cho flash messages, alerts, badges
+  // ═══════════════════════════════════════════
+  
+  // Màu thành công - hoàn tất, lưu xong
+  $brand-success: #10b95f,
+  
+  // Màu thông tin - thông báo chung
+  $brand-info: #3B82F6,
+  
+  // Màu cảnh báo - cần chú ý
+  $brand-warning: #F59E0B,
+  
+  // Màu nguy hiểm - lỗi, xóa, thao tác quan trọng
+  $brand-danger: #EF4444,
+
+  // ═══════════════════════════════════════════
+  // SCAFFOLDING (Khung nền trang)
+  // ═══════════════════════════════════════════
+  
+  // Màu nền body - slate-50, xám rất nhạt
+  $body-bg: #F8FAFC,
+  
+  // Màu chữ chính - slate-800, xám đậm
+  $text-color: #0e131c,
+  
+  // Màu link mặc định
+  $link-color: #3B82F6,
+  
+  // Màu link khi hover
+  $link-hover-color: #ed1a48,
+
+  // ═══════════════════════════════════════════
+  // TYPOGRAPHY (Kiểu chữ)
+  // ═══════════════════════════════════════════
+  
+  // Cỡ chữ cơ bản (px)
+  $font-size-base: 15px,
+  
+  // Độ đậm chữ semi-bold (500 = medium)
+  $font-weight-semi-bold: 500,
+  
+  // Độ đậm chữ bold (600 = semi-bold)
+  $font-weight-bold: 600,
+
+  // ═══════════════════════════════════════════
+  // BORDER RADIUS (Bo góc)
+  // Số càng lớn = góc càng tròn
+  // ═══════════════════════════════════════════
+  
+  // Bo góc chuẩn - dùng cho hầu hết components
+  $border-radius-base: 8px,
+  
+  // Bo góc lớn - dùng cho cards, panels
+  $border-radius-large: 12px,
+  
+  // Bo góc nhỏ - dùng cho inputs, badges
+  $border-radius-small: 6px,
+
+  // ═══════════════════════════════════════════
+  // TRANSITIONS (Hiệu ứng chuyển động)
+  // ═══════════════════════════════════════════
+  
+  // Thời gian transition nhanh (hover buttons)
+  $transition-time: 150ms,
+  
+  // Thời gian transition lâu hơn (menus, dropdowns)
+  $transition-time-long: 250ms,
+
+  // ═══════════════════════════════════════════
+  // TOP MENU & HEADER
+  // Thanh trên cùng với user menu
+  // ═══════════════════════════════════════════
+  
+  // Màu nền top menu - indigo rất đậm
+  $top-menu-bg: #02416e,
+  
+  // Màu chữ top menu
+  $top-menu-text: #C7D2FE,
+  
+  // Màu link top menu
+  $top-menu-link: #E0E7FF,
+  
+  // Màu link top menu khi hover
+  $top-menu-link-hover: #FFFFFF,
+
+  // Màu nền header chính (chứa tên project)
+  $header-bg: #014f86,
+
+  // ═══════════════════════════════════════════
+  // MAIN MENU (Thanh navigation chính)
+  // Issues, Wiki, Settings, etc.
+  // ═══════════════════════════════════════════
+  
+  // Màu nền menu
+  $main-menu-bg: #ffffffdb,
+  
+  // Màu nền menu khi hover
+  $main-menu-bg-hover: #F1F5F9,
+  
+  // Màu nền tab đang active
+  $main-menu-bg-active: transparent,
+  
+  // Màu chữ menu
+  $main-menu-link: #334155,
+  
+  // Màu chữ menu tab active
+  $main-menu-link-active: #1E293B,
+  
+  // Màu border dưới menu
+  $main-menu-border: #E2E8F0,
+  
+  // Màu shadow khi hover
+  $main-menu-shadow-hover: #ccd6e2e0,
+  
+  // Màu shadow tab active (đường kẻ dưới)
+  $main-menu-shadow-active: #014f86,
+
+  // ═══════════════════════════════════════════
+  // SIDEBAR
+  // Chứa filters, queries, watchers
+  // ═══════════════════════════════════════════
+  
+  // Chiều rộng sidebar (px)
+  $sidebar-width: 250px,
+  
+  // Màu nền link khi hover
+  $sidebar-link-hover-bg: #014f86,
+  
+  // Màu chữ link khi hover
+  $sidebar-link-hover-text: #ffffff,
+  
+  // Màu nền link active
+  $sidebar-link-active-bg: #FFFFFF,
+  
+  // Màu border link active
+  $sidebar-link-active-border: #E2E8F0,
+  
+  // Màu gạch bên trái link active
+  $sidebar-link-active-side: #014f86,
+  
+  // Màu chữ link active
+  $sidebar-link-active-text: #1E293B,
+
+  // ═══════════════════════════════════════════
+  // PANELS & CARDS
+  // Các khung chứa nội dung
+  // ═══════════════════════════════════════════
+  
+  // Màu nền panel
+  $panel-bg: #FFFFFF,
+  
+  // Màu border panel
+  $panel-border: #E2E8F0,
+  
+  // Shadow panel (2 layers cho depth)
+  $panel-shadow: (0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04)),
+
+  // ═══════════════════════════════════════════
+  // BUTTONS
+  // ═══════════════════════════════════════════
+  
+  // Button mặc định - nền
+  $btn-default-bg: #FFFFFF,
+  
+  // Button mặc định - border
+  $btn-default-border: #E2E8F0,
+  
+  // Button mặc định - màu chữ
+  $btn-default-color: #334155,
+  
+  // Button primary - nền (Submit, Save)
+  $btn-primary-bg: #00a5cf,
+  
+  // Button primary - border
+  $btn-primary-border: #00a5cf,
+  
+  // Button success - nền (Confirm, Create)
+  $btn-success-bg: #10B981,
+  
+  // Button success - border
+  $btn-success-border: #10B981,
+
+  // ═══════════════════════════════════════════
+  // FORMS (Input, Select, Textarea)
+  // ═══════════════════════════════════════════
+  
+  // Màu border input mặc định
+  $input-border: #CBD5E1,
+  
+  // Màu border input khi focus
+  $input-border-focus: #014f86,
+
+  // ═══════════════════════════════════════════
+  // TABLES
+  // ═══════════════════════════════════════════
+  $table-bg-hover: #c0d0da,
+  // Màu border bảng
+  $table-border-color: #E2E8F0,
+
+  // ═══════════════════════════════════════════
+  // ISSUE (Trang chi tiết issue)
+  // ═══════════════════════════════════════════
+  
+  // Màu nền issue panel
+  $issue-bg: #ffffffe3,
+ 
+
+  // Màu border issue panel
+  $issue-border: #E2E8F0,
+  // $table-color-border-shade: 100,
+  $priority-custom-color-map: (
+  lowest: (
+    border:                     shade(#029934, 100),
+    background:                 #029934,
+    // color:                      $text-color,
+    link:                       shade(#029934, 700),
+  ),
+  low2: (
+    border:                     shade(color.mix(#00b3ad, #029934), 100),
+    background:                 color.mix(#00b3ad, #029934),
+    // color:                      $text-color,
+    link:                       shade(color.mix(#00b3ad, #029934), 700),
+  ),
+  low3: (
+    border:                     shade(#00b3ad, 100),
+    background:                 #00b3ad,
+    // color:                      $text-color,
+    link:                       shade(#00b3ad, 700),
+  ),
+  default: (
+    border:                     shade(#169, 100),
+    background:                 #169,
+    // color:                      $text-color,
+    link:                       shade(#169, 700),
+  ),
+  high5: (
+    border:                     shade(#614ba6, 100),
+    background:                 #614ba6,
+    // color:                      $text-color,
+    link:                       shade(#614ba6, 700),
+  ),
+  high4: (
+    border:                     shade(#fc8c12, 100),
+    background:                 #fc8c12,
+    // color:                      $text-color,
+    link:                       shade(#fc8c12, 700),
+  ),
+  high3: (
+    border:                     shade(color.mix(#e5123d, #fc8c12), 100),
+    background:                 color.mix(#e5123d, #fc8c12),
+    // color:                      $text-color,
+    link:                       shade(color.mix(#e5123d, #fc8c12), 700),
+  ),
+  high2: (
+    border:                     shade(#e5123d, 100),
+    background:                 #e5123d,
+    // color:                      $text-color,
+    link:                       shade(#e5123d, 700),
+  ),
+  highest: (
+    border:                     shade(#e5123d, 100),
+    background:                 #e5123d,
+    // color:                      $text-color,
+    link:                       shade(#e5123d, 700),
+  )
+  ),
+  // ═══════════════════════════════════════════
+  // LOGIN FORM
+  // ═══════════════════════════════════════════
+  
+  // Chiều rộng form đăng nhập
+  $login-form-width: 35em,
+
+  // ═══════════════════════════════════════════
+  // FLASH MESSAGES (Thông báo)
+  // Hiển thị sau khi thao tác
+  // ═══════════════════════════════════════════
+  
+  // Success - thành công (màu xanh lá)
+  $flash-success-bg: #10B981,
+  $flash-success-border: #059669,
+  $flash-success-text: #FFFFFF,
+  $flash-success-link: #FFFFFF,
+
+  // Info - thông tin (màu xanh dương nhạt)
+  $flash-info-bg: #DBEAFE,
+  $flash-info-border: #93C5FD,
+  $flash-info-text: #1E40AF,
+  $flash-info-link: #1E3A8A,
+
+  // Warning - cảnh báo (màu vàng nhạt)
+  $flash-warning-bg: #FEF3C7,
+  $flash-warning-border: #FCD34D,
+  $flash-warning-text: #92400E,
+  $flash-warning-link: #78350F,
+
+  // Error - lỗi (màu đỏ)
+  $flash-error-bg: #EF4444,
+  $flash-error-border: #DC2626,
+  $flash-error-text: #FFFFFF,
+  $flash-error-link: #FFFFFF,
+
+  // ═══════════════════════════════════════════
+  // PAGINATION (Phân trang)
+  // ═══════════════════════════════════════════
+  
+  // Màu nền nút pagination
+  $pagination-bg: #F1F5F9,
+  $pagination-border: #F1F5F9,
+  
+  // Màu nền khi hover
+  $pagination-hover-bg: #E2E8F0,
+  $pagination-hover-border: #E2E8F0,
+  
+  // Màu nền trang hiện tại
+  $pagination-active-bg: #014f86,
+  $pagination-active-border: #014f86,
+
+  // ═══════════════════════════════════════════
+  // TABS
+  // ═══════════════════════════════════════════
+  
+  // Màu border tabs
+  $tab-border: #E2E8F0,
+  
+  // Màu nền tab khi hover
+  $tab-hover-bg: #F1F5F9,
+
+  // ═══════════════════════════════════════════
+  // TOOLTIPS
+  // ═══════════════════════════════════════════
+  
+  // Màu nền tooltip
+  $tooltip-bg: #1E293B,
+  
+  // Màu chữ tooltip
+  $tooltip-text: #FFFFFF,
+
+  // ═══════════════════════════════════════════
+  // PROGRESS BAR
+  // ═══════════════════════════════════════════
+  
+  // Màu progress bar mặc định
+  $progress-bar-bg: #014f86,
+  
+  // Màu progress success
+  $progress-bar-success-bg: #10B981,
+  
+  // Màu progress info
+  $progress-bar-info-bg: #3B82F6,
+  
+  // Màu progress danger
+  $progress-bar-danger-bg: #EF4444,
+
+  // ═══════════════════════════════════════════
+  // QUICK SEARCH (Tìm kiếm nhanh)
+  // ═══════════════════════════════════════════
+  
+  // Màu border khi focus
+  $quick-search-border-focus: #312E81,
+  
+  // Màu nền dropdown
+  $quick-search-dropdown-bg: #FFFFFF,
+  
+  // Màu border dropdown
+  $quick-search-dropdown-border: #E2E8F0,
+
+  // ═══════════════════════════════════════════
+  // Tracker
+  // ═══════════════════════════════════════════
+  $tracker-custom-colors-map:     (
+     1: (
+    background:                #e5123d,
+    color:                      #fff
+  ),
+  2: (
+    background:                 #169 ,
+    color:                      #fff
+  ),
+  3: (
+    background:                 #029934,
+    color:                      #fff
+  ),
+  4: (
+    background:                 #65529d,
+    color:                      #fff
+  ),
+  5: (
+    background:                #fc8c12,
+    color:                      #fff
+  ),
+  6: (
+    background:                 #00b3ad,
+    color:                      #fff
+  ),
+  7: (
+    background:                 #4055c7,
+    color:                      #fff
+  )
+  )
+);

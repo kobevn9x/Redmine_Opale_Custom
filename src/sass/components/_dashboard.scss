@@ -121,7 +121,7 @@
       color: #EF4444;
       
       &:hover {
-        color: darken(#EF4444, 10%);
+        color: rgba(#EF4444, 0.9);
       }
     }
   }
