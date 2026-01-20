@@ -1,6 +1,6 @@
 Opale Customize
 =====
-**--Based from https://github.com/gagnieray/opale**
+**Based from https://github.com/gagnieray/opale**
 
 A Redmine 6.x theme - Custom by Kobe with SaaS Style
 
