@@ -9,6 +9,7 @@ A Redmine 6.x theme - Custom by Kobe with SaaS Style
 [![CSS](https://img.shields.io/badge/CSS%20code%20style-SMACSS-brightgreen.svg)](https://github.com/cahamilton/stylelint-config-property-sort-order-smacss)
 
 ---
+<img width="1904" height="899" alt="image" src="https://github.com/user-attachments/assets/fd796784-5f8f-4eba-ad13-7ca1843b28ae" />
 
 <img width="1902" height="1020" alt="issues" src="https://github.com/user-attachments/assets/011a3008-be6e-4897-9429-75708bc58068" />
 
