@@ -10,7 +10,8 @@ A Redmine 6.x theme - Custom by Kobe with SaaS Style
 
 ---
 
-![Screenshot](./screenshots/issues.png)
+<img width="1902" height="1020" alt="issues" src="https://github.com/user-attachments/assets/011a3008-be6e-4897-9429-75708bc58068" />
+
 
 ## Main features
 
