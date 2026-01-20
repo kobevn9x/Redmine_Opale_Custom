@@ -1,0 +1,276 @@
+@use "../variables";
+
+// Task Dashboard - SaaS Analytics Style
+// ============================================
+
+.dashboard-project-label {
+  margin: 0 0 12px;
+  padding: 8px 12px;
+  background: rgba(variables.$brand-primary, 0.08);
+  border-radius: variables.$border-radius-base;
+  font-weight: variables.$font-weight-semi-bold;
+  color: variables.$brand-primary;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+
+  svg {
+    stroke: variables.$brand-primary;
+  }
+
+  a {
+    color: variables.$brand-primary;
+    
+    &:hover {
+      color: variables.$link-hover-color;
+    }
+  }
+}
+
+.task-dashboard {
+  padding: variables.$padding-base-vertical 0;
+}
+
+// Dashboard Cards Grid
+.dashboard-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+  margin-bottom: variables.$line-height-computed;
+}
+
+// Individual Card
+.dashboard-card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px;
+  background: variables.$white;
+  border-radius: variables.$border-radius-large;
+  border: 1px solid variables.$gray-200;
+  box-shadow: 0 1px 3px rgba(variables.$black, 0.04);
+  transition: transform variables.$transition-time, box-shadow variables.$transition-time;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(variables.$black, 0.08);
+  }
+
+  &__icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: variables.$border-radius-base;
+    flex-shrink: 0;
+
+    svg {
+      stroke-width: 1.5;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+  }
+
+  &__value {
+    font-size: 1.75em;
+    font-weight: variables.$font-weight-bold;
+    line-height: 1.2;
+    color: variables.$gray-900;
+    text-decoration: none;
+    
+    &:hover {
+      color: variables.$brand-primary;
+      text-decoration: underline;
+    }
+  }
+
+  &__label {
+    font-size: variables.$font-size-small;
+    color: variables.$black;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  // Card variants
+  &--total {
+    .dashboard-card__icon {
+      background: rgba(#0080ff, 0.5);
+
+      svg {
+        stroke: #3B82F6;
+      }
+    }
+  }
+
+  &--overdue {
+    .dashboard-card__icon {
+      background: rgba(#EF4444, 0.5);
+
+      svg {
+        stroke: #EF4444;
+      }
+    }
+
+    .dashboard-card__value {
+      color: #EF4444;
+      
+      &:hover {
+        color: darken(#EF4444, 10%);
+      }
+    }
+  }
+
+  &--due-soon {
+    .dashboard-card__icon {
+      background: rgba(#eab308, 0.5);
+
+      svg {
+        stroke: #F59E0B;
+      }
+    }
+  }
+
+  &--completed {
+    .dashboard-card__icon {
+      background: rgba(#22c55e, 0.5);
+
+      svg {
+        stroke: #10B981;
+      }
+    }
+  }
+}
+
+// Status Breakdown Section
+.dashboard-breakdown {
+  background: variables.$gray-50;
+  border-radius: variables.$border-radius-large;
+  // padding: 16px;
+  padding: 14px;
+  border: 1px solid variables.$gray-200;
+  // margin-bottom: 12px;
+  margin-bottom: 10px;
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  &--projects {
+    background: rgba(#3162a1, 0.03);
+    border-color: rgba(#3162a1, 0.15);
+  }
+
+  &__title {
+    margin: 0 0 12px;
+    font-size: 0.9em;
+    font-weight: variables.$font-weight-semi-bold;
+    color: variables.$gray-700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+}
+
+// Status Item with Progress Bar
+.dashboard-status-item {
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+  }
+
+  &__name {
+    font-size: variables.$font-size-base;
+    font-weight: variables.$font-weight-normal;
+    color: variables.$black;
+  }
+
+  &__count {
+    font-size: variables.$font-size-small;
+    font-weight: variables.$font-weight-semi-bold;
+    color: variables.$gray-600;
+  }
+
+  &__bar {
+    height: 6px;
+    background: variables.$gray-200;
+    border-radius: 3px;
+    overflow: hidden;
+  }
+
+  &__progress {
+    height: 100%;
+    background: linear-gradient(90deg, variables.$brand-primary, variables.$brand-info);
+    border-radius: 3px;
+    transition: width 0.5s ease-out;
+    min-width: 2px;
+  }
+
+  // Alternate colors for different statuses
+  &:nth-child(1) .dashboard-status-item__progress {
+    background: linear-gradient(90deg, #3B82F6, #60A5FA);
+  }
+
+  &:nth-child(2) .dashboard-status-item__progress {
+    background: linear-gradient(90deg, #10B981, #34D399);
+  }
+
+  &:nth-child(3) .dashboard-status-item__progress {
+    background: linear-gradient(90deg, #F59E0B, #FBBF24);
+  }
+
+  &:nth-child(4) .dashboard-status-item__progress {
+    background: linear-gradient(90deg, #8B5CF6, #A78BFA);
+  }
+
+  &:nth-child(5) .dashboard-status-item__progress {
+    background: linear-gradient(90deg, #EC4899, #F472B6);
+  }
+
+  &:nth-child(6) .dashboard-status-item__progress {
+    background: linear-gradient(90deg, #06B6D4, #22D3EE);
+  }
+}
+
+// Project-specific progress bar
+.dashboard-status-item__progress--project {
+  background: linear-gradient(90deg, #3162a1, #3162a1) !important;
+}
+
+// Responsive adjustments
+@media screen and (max-width: variables.$screen-sm-max) {
+  .dashboard-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .dashboard-card {
+    padding: 12px;
+
+    &__icon {
+      width: 40px;
+      height: 40px;
+    }
+
+    &__value {
+      font-size: 1.5em;
+    }
+  }
+}
+
+@media screen and (max-width: variables.$screen-xs-max) {
+  .dashboard-cards {
+    grid-template-columns: 1fr;
+  }
+}
